@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux'
 
 
-
+// ⬇ Reducer to hold an array of objects, each with an id, todo, and completed property.
 const todoReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_TODO':
@@ -26,12 +26,10 @@ const todoReducer = (state = [], action) => {
 	}
 }
 
-
 const store = createStore(
 	combineReducers({
 		todoReducer,
 	}),
-
-);
+); // End store
 
 export default store;

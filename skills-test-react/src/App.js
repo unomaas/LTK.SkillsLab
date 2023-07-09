@@ -7,14 +7,19 @@ import BasicForm from './BasicForm'
 import { useSelector } from 'react-redux';
 import TodoTable from './TodoTable';
 
+
 export default function App() {
 
+	// ⬇ State management for form display:
 	const [openForm, setOpenForm] = React.useState(false);
 
+	// ⬇ Handles opening and closing the form: 
 	const handleOnClick = () => setOpenForm(!openForm);
 
+	// ⬇ Array of todo objects, each with an id, todo, and completed property. 
 	const todoList = useSelector(state => state.todoReducer);
 
+	
 	return (
 		<Container maxWidth="sm" sx={{ textAlign: "center" }}>
 			<AccountMenu onClick={handleOnClick} openForm={openForm} />

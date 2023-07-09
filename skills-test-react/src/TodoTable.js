@@ -5,12 +5,9 @@ import { Box, Button } from '@mui/material';
 
 export default function TodoTable() {
 	const dispatch = useDispatch();
+
 	const todoList = useSelector(state => state.todoReducer);
 	const [selectedRow, setSelectedRow] = React.useState(null);
-
-
-	console.log(`Ryan Here \n selectedRow:`, { selectedRow });
-
 
 	const columns = [
 		{
@@ -26,6 +23,7 @@ export default function TodoTable() {
 		}
 	]; // End columns
 
+
 	return (
 		<Box sx={{ width: '100%' }}>
 			<DataGrid
@@ -40,7 +38,6 @@ export default function TodoTable() {
 				}}
 				pageSizeOptions={[5]}
 				onRowSelectionModelChange={([selection]) => {
-					console.log(selection);
 					setSelectedRow(todoList.find(row => row.id === selection));
 				}}
 			/>
@@ -63,7 +60,6 @@ export default function TodoTable() {
 					</Button>
 				</div>
 			}
-
 		</Box>
-	)
-}
+	) // End return
+} // End TodoTable
