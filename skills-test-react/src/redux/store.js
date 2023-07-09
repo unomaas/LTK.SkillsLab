@@ -5,9 +5,21 @@ import { createStore, combineReducers } from 'redux'
 const todoReducer = (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_TODO':
-			console.log(`Ryan Here: todoReducer \n `, { payload: action.payload });
-			return [...state, action.payload];
+			return [
+				...state,
+				action.payload
+			];
 
+		case 'UPDATE_TODO':
+			return state.map(todo => {
+				if (todo.id === action.payload) {
+					todo.completed = !todo.completed;
+				}
+				return todo;
+			});
+
+		case 'DELETE_TODO':
+			return state.filter(todo => todo.id !== action.payload);
 
 		default:
 			return state;
