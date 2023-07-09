@@ -2,26 +2,22 @@ import * as React from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import AccountMenu from './AccountMenu';
 import BasicForm from './BasicForm'
+import { useSelector } from 'react-redux';
+import TodoTable from './TodoTable';
 
 export default function App() {
 
 	const [openForm, setOpenForm] = React.useState(false);
 
-	const handleOnClick = (page) => {
-		console.log('open');
-		if (!openForm) {
-			setOpenForm(true)
-		} else {
-			setOpenForm(false)
-		}
-	};
+	const handleOnClick = () => setOpenForm(!openForm);
+
+	const todoList = useSelector(state => state.todoReducer);
 
 	return (
-		<Container maxWidth="sm">
-			<AccountMenu onClick={handleOnClick} />
+		<Container maxWidth="sm" sx={{ textAlign: "center" }}>
+			<AccountMenu onClick={handleOnClick} openForm={openForm} />
 
 			{openForm &&
 				<BasicForm />
@@ -32,6 +28,12 @@ export default function App() {
 					React Skills Test
 				</Typography>
 			</Box>
+
+			{todoList.length > 0 &&
+				<Box sx={{ my: 4 }}>
+					<TodoTable />
+				</Box>
+			}
 
 		</Container>
 	);
