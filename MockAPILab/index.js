@@ -23,7 +23,7 @@ app.get('/', async (req, res) => {
 
 			// ⬇ Step 5: create a GET method that gets one loan object based on loanId
 			axios.get(`http://localhost:3000/ltk/loanData/fetch-loan-by-id/${2}`),
-			
+
 			// ⬇ Step 6: create a POST method that adds a new loan object with an array of borrowers
 			axios.post('http://localhost:3000/ltk/loanData/add-loan', addDummyData),
 
@@ -40,7 +40,14 @@ app.get('/', async (req, res) => {
 
 		const results = await Promise.all(promises);
 
-		const [getAllLoans, getLoanById, addLoan, updateLoan, deleteBorrower, deleteLoan] = results;
+		const [
+			getAllLoans,
+			getLoanById,
+			addLoan,
+			updateLoan,
+			deleteBorrower, 
+			deleteLoan
+		] = results;
 
 		res.json({
 			getAllLoans: getAllLoans.data,
