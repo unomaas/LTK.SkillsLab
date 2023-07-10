@@ -49,7 +49,7 @@ Material UI - UI library
 ![Sample Screenshot of the App](./skills-test-react/public/React-App.png)
 
 
-#### Project Structure
+### Project Structure
 ```
 skills-test-react
 ├── src
@@ -154,7 +154,7 @@ Jest - Testing framework
 Axios - Promise based HTTP client for the browser and node.js
 
 
-#### Project Structure
+### Project Structure
 ```
 MockAPILab
 ├── routes
