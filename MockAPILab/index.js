@@ -37,6 +37,7 @@ app.get('/', async (req, res) => {
 			axios.delete(`http://localhost:3000/ltk/loanData/delete-loan/${Math.floor(Math.random() * 10)}`),
 		]; // End promises
 
+
 		const results = await Promise.all(promises);
 
 		const [getAllLoans, getLoanById, addLoan, updateLoan, deleteBorrower, deleteLoan] = results;
