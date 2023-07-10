@@ -49,7 +49,7 @@ Material UI - UI library
 ![Sample Screenshot of the App](./skills-test-react/public/React-App.png)
 
 
-### Project Structure
+#### Project Structure
 ```
 skills-test-react
 ├── src
@@ -83,6 +83,10 @@ Ensure that you have the following installed on your local machine:
 * [Postgres](https://www.postgresql.org/download/)
 
 
+### JSON vs Postgres
+If the user does not have a Postgres connection established, the API will default to using JSON data to test with instead. To use Postgres, you will need to configure the database and install the pg module.
+
+
 ### Configuring the Database
 The application uses pg to connect to a PostgreSQL database. You can configure the database connection by editing the config object in pool.js. Here is a sample configuration:
 
@@ -90,7 +94,7 @@ The application uses pg to connect to a PostgreSQL database. You can configure t
 config = {
     host: "localhost",
     port: 5432,
-    database: "ltk_api",
+    database: "ltk_api", // Your database name should replace this.
     max: 10,
     idleTimeoutMillis: 30000
 }
@@ -128,7 +132,7 @@ The server provides the following endpoints for managing loans and borrowers:
 2. `GET /ltk/loanData/fetch-loan-by-id/:id`: Fetch a single loan object based on loanId.
 3. `POST /ltk/loanData/add-loan`: Add a new loan object with an array of borrowers.
 4. `PUT /ltk/loanData/update-loan/:loanId/:pairId`: Update borrower information based on loanId and pairId.
-5 `PUT /ltk/loanData/update-loan-delete-borrower/:loanId/:pairId`: Remove a borrower from a loan based on loanId and pairId.
+5. `PUT /ltk/loanData/update-loan-delete-borrower/:loanId/:pairId`: Remove a borrower from a loan based on loanId and pairId.
 6. `DELETE /ltk/loanData/delete-loan/:id`: Remove a loan object based on loanId. 
 
 The server responds with a JSON object. For GET requests, this object contains the requested loan(s). For POST, PUT, and DELETE requests, the server responds with an HTTP status code to indicate success or failure.
@@ -150,7 +154,7 @@ Jest - Testing framework
 Axios - Promise based HTTP client for the browser and node.js
 
 
-### Project Structure
+#### Project Structure
 ```
 MockAPILab
 ├── routes
